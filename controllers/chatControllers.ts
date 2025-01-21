@@ -85,7 +85,6 @@ console.log(users)
     if (init) {
       users.push(init);
     }
-     console.log('ddnidjvn', users)
 
     const groupChat = await Chat.create({
       chatName: name,

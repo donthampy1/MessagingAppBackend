@@ -20,7 +20,7 @@ export const aiChat = async (req: Request, res: Response): Promise<any> => {
 
        const formattedHistory = history ? history.map((msg:any) => ({
             role: msg.role,
-            parts: [{ text: msg.parts.join('') }], // Join parts if it's an array
+            parts: [{ text: msg.parts.join('') }],
         })) : [];
 
         const chat = model.startChat({

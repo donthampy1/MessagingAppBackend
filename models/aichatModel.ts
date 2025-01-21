@@ -1,6 +1,5 @@
 import mongoose, { Document, ObjectId } from "mongoose";
 
-// User interface for typing the User documents
 interface Message {
   role: "user" | "model"
   parts: string;
@@ -13,7 +12,7 @@ interface  ChatHistory{
 }
 
 const chatHistorySchema = new mongoose.Schema({
-    userId: { type: mongoose.Schema.Types.ObjectId, required: true, index: true }, // Index for efficient querying
+    userId: { type: mongoose.Schema.Types.ObjectId, required: true, index: true }, 
     messages: [
         {
             role: { type: String, enum: ['user', 'model'], required: true },

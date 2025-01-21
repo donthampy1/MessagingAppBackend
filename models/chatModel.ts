@@ -1,6 +1,5 @@
 import mongoose, { Document, ObjectId } from "mongoose";
 
-// User interface for typing the User documents
 interface IUser extends Document {
   username: string;
   email: string;
@@ -37,7 +36,6 @@ const ChatSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Make sure to use the correct type for the Chat model
 const Chat = mongoose.model<IChat>("Chat", ChatSchema);
 
 export { Chat, IChat, IUser };

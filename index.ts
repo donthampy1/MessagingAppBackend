@@ -19,7 +19,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions))
-
 app.use(express.json())
 
 
@@ -29,22 +28,10 @@ app.use('/api/chat', chatRoutes)
 app.use('/api/message', messageRoutes)
 app.use('/api/aichat', aiChatRoutes)
 
-
-
-
-
-
-
-
-
-
-
-
-
 const PORT = process.env.PORT || 3000;
 
 const server = app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+  console.log(`Server running at ${PORT}`);
 });
 
 
@@ -73,7 +60,6 @@ io.on("connection", (socket: any) => {
   })
 
  
-
   socket.on("new message", (newMessageRecieved:any) => {
     let chat = newMessageRecieved.chat
 
