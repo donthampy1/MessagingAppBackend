@@ -81,27 +81,18 @@ console.log(usersRaw,"create")
   try {
     users = JSON.parse(usersRaw);
 console.log(users)
-    // if (users.length < 2) {
-    //   return res.status(400).json({
-    //     message: "More than 2 users are required to form a group chat",
-    //   });
-    // }
-
-    // Add the requesting user to the group
+    
     if (init) {
       users.push(init);
     }
      console.log('ddnidjvn', users)
 
-    // Create the group chat
     const groupChat = await Chat.create({
       chatName: name,
-      users: users, // Ensure only IDs are saved in the users array
-      isGroupChat: true,
+      users: users, 
       groupAdmin: init,
     });
 console.log(groupChat)
-  //   // Populate group chat with user details
     const fullGroupChat = await Chat.findById(groupChat._id)
       .populate("users")
       .populate("groupAdmin");
@@ -125,12 +116,10 @@ export const addtoGroup = async (req: Request, res: Response): Promise<any> => {
     const { chatId, userId } = req.body
 
     const added = Chat.findByIdAndUpdate(chatId,{ $push: { users: userId}}, {new: true})
-    ///populate
 }
 
 export const removefromGroup = async (req: Request, res: Response): Promise<any> => {
     const { chatId, userId } = req.body
 
     const added = Chat.findByIdAndUpdate(chatId,{ $push: { users: userId}}, {new: true})
-    ///populate
 }

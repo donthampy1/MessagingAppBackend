@@ -8,7 +8,6 @@ dotenv.config();
 
 export const aiChat = async (req: Request, res: Response): Promise<any> => {
     const { history , query } = req.body;
-    console.log(history, query, "query reached")
     if ( !query) {
         return res.status(400).json({ error: "query required" });
     }
