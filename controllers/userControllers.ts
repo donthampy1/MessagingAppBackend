@@ -22,7 +22,6 @@ export const login = async (req: Request, res: Response): Promise<any> => {
 
 export const searchUsers = async (req: Request, res: Response) => {
 try {
-  console.log("search reaching ")
   const {search, userId}  = req.query
 
     const searchFilter = {
@@ -34,7 +33,6 @@ try {
     };
 
     const users = await User.find(searchFilter)
-    console.log('khbkhbjhbj')
   res.send(users)
 }catch(error){
   console.log(error)
