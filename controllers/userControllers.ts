@@ -3,19 +3,16 @@ import { Request, Response } from "express";
 
 export const login = async (req: Request, res: Response): Promise<any> => {
   try {
-    const { email, username } = req.body;
+    const { email, username, picture } = req.body;
 
     let user = await User.findOne({ email });
-    console.log(user)
     if (!user) {
-      user = new User({ email, username });
+      user = new User({ email, username, picture });
       await user.save();
-      console.log(email, "added");
       return res
         .status(201)
         .json({ message: "User created successfully.", user });
-    }
-    console.log(username, "already exists ");
+    }console.log("added or logged in ")
     return res.status(200).json({ message: "User already exists.", user });
   } catch (error) {
     console.error(error);
@@ -37,7 +34,7 @@ try {
     };
 
     const users = await User.find(searchFilter)
-    console.log('khbkhbjhbj',searchFilter, users)
+    console.log('khbkhbjhbj')
   res.send(users)
 }catch(error){
   console.log(error)

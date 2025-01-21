@@ -4,9 +4,9 @@ import mongoose, { Document, ObjectId } from "mongoose";
 interface IUser extends Document {
   username: string;
   email: string;
+  picture: string
 }
 
-// Chat interface for typing the Chat documents
 interface IChat extends Document {
   chatName: string;
   isGroupChat: boolean;
