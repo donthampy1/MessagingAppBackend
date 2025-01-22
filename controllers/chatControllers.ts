@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Chat, IUser } from "../models/chatModel";  // Import correct types
+import { Chat, IUser } from "../models/chatModel"; 
 import User from "../models/userModel";
 
 export const accessChat = async (req: Request, res: Response): Promise<any>=> {
@@ -90,6 +90,7 @@ console.log(users)
       chatName: name,
       users: users, 
       groupAdmin: init,
+      isGroupChat:true
     });
 console.log(groupChat)
     const fullGroupChat = await Chat.findById(groupChat._id)
